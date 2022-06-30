@@ -14,9 +14,14 @@ function run() {
     const reviewers = core.getInput("reviewers");
     const removeRequest = core.getInput("remove").toLowerCase() === "true";
     const prReviewers = reviewers.split(", ");
+    const prTeamReviewers = core.getInput("team_reviewers").split(", ")
     const token = process.env["GITHUB_TOKEN"] || core.getInput("token");
     const octokit = new github.getOctokit(token);
     const context = github.context;
+
+    if (!prReviewers && !prTeamReviewers) {
+      core.setFailed("'reviewers' or 'team_reviewers' are required.")
+    }
 
     if (context.payload.pull_request == null) {
       core.setFailed("No pull request found.");
@@ -28,6 +33,7 @@ function run() {
       ...context.repo,
       pull_number: pullRequestNumber,
       reviewers: prReviewers,
+      team_reviewers: prTeamReviewers,
     };
 
     if (removeRequest) {

@@ -18,6 +18,7 @@ GitHub will add CODEOWNERS as reviewers at the start of a pull request, before a
 | --- | --- | --- |
 | `token` | `GITHUB_TOKEN` or a `repo` scoped [PAT](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line). | `GITHUB_TOKEN` |
 | `reviewers` | The email or user name of the reviewer(s) to add. If more than one use a comma separated list. | none |
+| `team_reviewers` | The team slug of the reviewer(s) to add. If more than one use a comma separated list. | none |
 | `remove` | Remove a review request (boolean) | `false` |
 
 ### Action Outputs

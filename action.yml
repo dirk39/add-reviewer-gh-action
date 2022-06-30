@@ -6,7 +6,8 @@ branding:
 inputs:
   reviewers:
     description: "Reviewer(s) to add, in comma separated list."
-    required: true
+  team_reviewers:
+    description: "Team reviewer(s) to add, in comma separated list."
   token:
     description: GitHub Personal Access Token
   remove:
